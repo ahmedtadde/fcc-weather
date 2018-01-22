@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App | Ahmed Tadde</title>
+    <link rel="icon" type="image/png" href="img/weather.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+        <div id="search-box">
+          <input id="location-input" type="text" placeholder="Enter Loaction Name or Code..."
+          onfocus="this.value=''">
+        </div>
+      </header>
+
+      <main id="weather-card" class="blank">
+        <section id="basic-info">
+
+          <div id='city-and-unit-selection'>
+            <div id="city"></div>
+            <div id="unit-selection">
+              <ul>
+                <li class="active-degree-unit" id="degree-f">&#8457;</li>
+                <li>&#124;</li>
+                <li id="degree-c">&#8451;</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="date">
+            <span id="day-name"></span>,
+            <span id="month-and-day"></span>
+          </div>
+
+        </section>
+
+        <section id="weather-summary">
+        </section>
+
+        <section id="primary-info">
+
+          <div id="weather-status-temp">
+
+            <div>
+              <span id="weather-status-now-temp">&#176;</span>
+            </div>
+
+            <div id="low-high-temp-container">
+
+              <div class="low-high-temp">
+                <span class="low-high-temp-icon">&#x25BC;</span><span id="weather-status-low-temp"></span>&#176;<span class="low-high-temp-type">low</span>
+              </div>
+              <div class="low-high-temp">
+                <span class="low-high-temp-icon">&#x25B2;</span><span id="weather-status-high-temp"></span>&#176;<span class="low-high-temp-type">high</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div id="weather-status-icon">
+            <div id="weather-icon-description"></div>
+            <div>
+              <i id="weather-icon-img" class="wi blank"></i>
+            </div>
+          </div>
+
+        </section>
+        <section id="secondary-info">
+
+          <div class="weather-status-meta-info" id="precipitation">
+            <div class="meta-info-details">
+              <span><i class="fa fa-tint" aria-hidden="true"></i></span>
+              <span id="precipitation-value"></span><span class="meta-info-unit">&#37;</span>
+            </div>
+
+            <div class="meta-info-id">PRECIPITATION</div>
+          </div>
+
+          <div class="weather-status-meta-info" id="humidity">
+            <div class="meta-info-details">
+              <span><i class="fa fa-thermometer-quarter" aria-hidden="true"></i></span>
+              <span id="humidity-value"></span><span class="meta-info-unit">&#37;</span>
+            </div>
+
+            <div class="meta-info-id">HUMIDITY</div>
+          </div>
+
+          <div class="weather-status-meta-info" id="wind">
+            <div class="meta-info-details">
+              <span><i class="fa fa-flag" aria-hidden="true"></i></span>
+              <span id="wind-value"></span><span class="meta-info-unit">mph</span>
+            </div>
+
+            <div class="meta-info-id">WIND</div>
+          </div>
+
+        </section>
+
+        <section id="tertiary-info">
+          <canvas id="weather-chart"></canvas>
+        </section>
+
+        <section id="three-day-forecast">
+          <div>
+            <div class="weather-to-come">
+              <div>
+                <span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></span>
+                <div class="forecast-day" id="forecast-day-1"></div>
+              </div>
+              <div class="forecast-icon">
+                <i id="forecast-icon-1" class="wi blank"></i>
+              </div>
+
+              <div class="meta-info-details">
+                <span><i class="fa fa-tint" aria-hidden="true"></i></span>
+                <span id="forecast-precipitation-1"></span><span class="meta-info-unit">&#37;</span>
+              </div>
+
+              <div class="forecast-low-high">
+                <span id="forecast-low-1"></span>&#176;/
+                <span id="forecast-high-1"></span>&#176;
+              </div>
+            </div>
+            <div class="forecast-day-summary hide" id="forecast-day-summary-1"></div>
+          </div>
+
+          <div>
+            <div class="weather-to-come">
+              <div>
+                <span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></span>
+                <div class="forecast-day" id="forecast-day-2"></div>
+              </div>
+
+              <div class="forecast-icon">
+                <i id="forecast-icon-2" class="wi blank"></i>
+              </div>
+
+              <div class="meta-info-details">
+                <span><i class="fa fa-tint" aria-hidden="true"></i></span>
+                <span id="forecast-precipitation-2"></span><span class="meta-info-unit">&#37;</span>
+              </div>
+
+              <div class="forecast-low-high">
+                <span id="forecast-low-2"></span>&#176;/
+                <span id="forecast-high-2"></span>&#176;
+              </div>
+            </div>
+            <div class="forecast-day-summary hide" id="forecast-day-summary-2"></div>
+          </div>
+
+          <div>
+            <div class="weather-to-come">
+              <div>
+                <span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></i></span>
+                <div class="forecast-day" id="forecast-day-3"></div>
+              </div>
+              <div class="forecast-icon">
+                <i id="forecast-icon-3" class="wi blank"></i>
+              </div>
+
+              <div class="meta-info-details">
+                <span><i class="fa fa-tint" aria-hidden="true"></i></span>
+                <span id="forecast-precipitation-3"></span><span class="meta-info-unit">&#37;</span>
+              </div>
+
+              <div class="forecast-low-high">
+                <span id="forecast-low-3"></span>&#176;/
+                <span id="forecast-high-3"></span>&#176;
+              </div>
+            </div>
+            <div class="forecast-day-summary hide" id="forecast-day-summary-3"></div>
+          </div>
+
+          <div>
+            <div class="weather-to-come">
+              <div>
+                <span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></span>
+                <div class="forecast-day" id="forecast-day-4"></div>
+              </div>
+              <div class="forecast-icon">
+                <i id="forecast-icon-4" class="wi blank"></i>
+              </div>
+
+              <div class="meta-info-details">
+                <span><i class="fa fa-tint" aria-hidden="true"></i></span>
+                <span id="forecast-precipitation-4"></span><span class="meta-info-unit">&#37;</span>
+              </div>
+
+              <div class="forecast-low-high">
+                <span id="forecast-low-4"></span>&#176;/
+                <span id="forecast-high-4"></span>&#176;
+              </div>
+            </div>
+            <div class="forecast-day-summary hide" id="forecast-day-summary-4"></div>
+          </div>
+
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-element">
+          <a href="https://darksky.net/dev" target="_blank">Powered By Dark Sky API</a>
+        </div>
+        <div class="footer-element">
+            <a href="https://github.com/ahmedtadde/fcc-weatherapp" target="_blank">
+              <i class="fa fa-github" aria-hidden="true"></i> GitHub
+            </a>
+        </div>
+        <div class="footer-element">
+            <a href="https://codepen.io/ahmedtadde/" target="_blank">
+              <i class="fa fa-codepen" aria-hidden="true"></i> Codepen
+            </a>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCthCggpjlXE_ztlKMW0SmcYKV6nro7vD0&libraries=places"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

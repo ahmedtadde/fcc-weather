@@ -1,0 +1,280 @@
+@font-face{
+  font-family: 'webly';
+  src: url(../font/webly-sleek.ttf) format('truetype');
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+li{
+  list-style-type: none;
+  font-size: 12px;
+  display: inline-block;
+  color: grey;
+}
+
+.hide{
+  display: none;
+}
+
+.blank{
+  opacity: 0;
+}
+
+
+body{
+  height: 100%;
+  background-color: #E8E8E8;
+  font-family:  'webly','Varela Round', sans-serif;
+  font-size: 15px;
+
+}
+
+
+#wrapper{
+  height: 100%;
+  margin: 25px auto;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+header{
+  width: 100%;
+}
+
+#heading-container{
+  display: flex;
+}
+
+#search-box {
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+input{
+  border: none;
+   flex-grow:1;
+   height: 25px;
+   color: black;
+   font-family:  'webly','Varela Round', sans-serif;
+   font-size: 15px;
+   text-indent: 35px;
+   outline: none;
+   padding: 15px 0px;
+   box-sizing: border-box;
+   background-image: url('../img/search-icon.svg');
+   background-position: left;
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+main{
+  padding:10px;
+  background-color: white;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+#city-and-unit-selection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px auto;
+}
+
+#city {
+  font-size: 25px;
+}
+
+#degree-f, #degree-c{
+  cursor: pointer;
+}
+
+.active-degree-unit{
+  font-family:  'webly','Varela Round', sans-serif;
+  font-weight: bolder;
+  color: white;
+  background-color: black;
+  width: 20px;
+  padding-left: 5px;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+#date{
+  margin: 5px auto;
+  width:100%;
+  text-align: justify;
+  color: white;
+  background-color: black;
+}
+
+
+
+#weather-summary,
+.forecast-day-summary{
+  margin: 15px auto;
+  text-align: justify;
+}
+
+.forecast-day-summary{
+  font-size: 12px;
+  text-indent: 15px;
+}
+
+#three-day-forecast{
+  margin: 15px auto;
+}
+
+.weather-to-come{
+  margin: 5px 0;
+  display: grid;
+  grid-template-columns: 35% 20% 20% 25%;
+}
+
+.forecast-day{
+  display: inline-block;
+  padding-left: 5px;
+}
+
+span .fa-arrow-circle-o-down{
+  cursor: pointer;
+}
+
+
+.forecast-low-high{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast-icon{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+
+/* MAIN SECTION, AKA RIGHT SIDE */
+
+#primary-info{
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+#weather-status-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+#weather-icon-description{
+  margin: 5px auto;
+}
+#weather-icon-img{
+  font-size: 50px;
+  margin: 5px auto;
+}
+
+#weather-status-now-temp{
+  font-size: 65px;
+}
+
+#weather-status-low-temp,
+#weather-status-high-temp{
+  font-size: 12px;
+}
+
+#low-high-temp-container{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.low-high-temp{
+  padding-right: 5px;
+}
+.low-high-temp-icon{
+  font-size: 8px;
+}
+
+.low-high-temp-type{
+  font-size: 10px;
+}
+
+
+#secondary-info{
+  margin: 25px auto 0 auto ;
+  display: flex;
+  justify-content: space-around;
+}
+
+.meta-info-unit{
+  font-size: 10px;
+}
+
+.meta-info-details{
+  text-align: center;
+}
+
+.meta-info-id{
+  color:grey;
+  font-size: 10px;
+  text-align: center;
+}
+
+#tertiary-info{
+  position: relative;
+  margin: 15px auto ;
+}
+
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center ;
+  background-color: black;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+}
+
+.footer-element{
+  font-size: 12px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+
+@media screen and (max-width:750px){
+  #wrapper{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+  }
+
+  body{
+    background-color: white;
+  }
+
+  header{
+    position: sticky;
+    top:0px;
+  }
+
+  main{
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+}
