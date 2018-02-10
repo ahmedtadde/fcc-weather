@@ -9,7 +9,7 @@ let locationParams = {
   types: ['(regions)']
 };
 
-autocomplete = new google.maps.places.Autocomplete(locationInput, locationParams);
+let autocomplete = new google.maps.places.Autocomplete(locationInput, locationParams);
 
 (function() {
     let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];

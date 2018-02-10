@@ -75,9 +75,8 @@ input{
    color: black;
    font-family:  'webly','Varela Round', sans-serif;
    font-size: 15px;
-   text-indent: 35px;
    outline: none;
-   padding: 15px 0px;
+   padding: 15px 10px;
    -webkit-box-sizing: border-box;
            box-sizing: border-box;
 }
